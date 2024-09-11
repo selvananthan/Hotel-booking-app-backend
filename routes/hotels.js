@@ -1,7 +1,12 @@
 const express = require('express');
 const Hotel = require('../models/Hotel');
 const router = express.Router();
+//helath check
 
+router.get('/health',async(req,res)=>{
+
+  res.status(201).json({ message: 'server is healthy' });
+})
 // Get all hotels
 router.get('/', async (req, res) => {
   const { filter = 'all', sortBy = 'priceAsc' } = req.query;
