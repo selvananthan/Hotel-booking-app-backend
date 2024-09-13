@@ -6,7 +6,7 @@ const authRoutes = require('./routes/auth');
 const hotelRoutes = require('./routes/hotels');
 const reviewRoutes = require('./routes/reviews');
 const bookingRoutes = require('./routes/bookings');
-
+const paymentRoutes = require('./routes/payment')
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/hotels', hotelRoutes);
 app.use('/api/reviews', reviewRoutes);
-app.use('/api/bookings', bookingRoutes); 
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/payment/',paymentRoutes)
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://selvagoogly:Mars%401992@cluster0.k3rqn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
